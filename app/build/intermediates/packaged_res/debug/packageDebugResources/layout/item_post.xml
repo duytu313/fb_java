@@ -1,0 +1,123 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:background="#FFFFFF">
+
+    <!-- Tên người dùng -->
+    <TextView
+        android:id="@+id/post_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User Name"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginBottom="4dp"/>
+
+    <!-- Nội dung bài viết -->
+    <TextView
+        android:id="@+id/post_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nội dung bài viết"
+        android:textSize="14sp"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Ảnh bài viết -->
+    <ImageView
+        android:id="@+id/post_image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:visibility="gone"
+        android:layout_marginBottom="8dp"
+        android:background="#e0e0e0"/>
+
+    <!-- YouTube Player -->
+    <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+        android:id="@+id/youtube_player_view"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone"/>
+
+    <!-- Like / Comment / Share -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:weightSum="3">
+
+        <!-- Like -->
+        <LinearLayout
+            android:id="@+id/likeContainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center_vertical|center_horizontal"
+            android:padding="8dp">
+            <ImageView android:id="@+id/btnLikeIcon" android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ic_like"/>
+            <TextView android:id="@+id/btnLikeText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Like" android:layout_marginStart="4dp"/>
+        </LinearLayout>
+
+        <!-- Comment -->
+        <LinearLayout
+            android:id="@+id/commentContainerToggle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center_vertical|center_horizontal"
+            android:padding="8dp">
+            <ImageView android:id="@+id/btnCommentIcon" android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ic_comment"/>
+            <TextView android:id="@+id/btnCommentText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Comment" android:layout_marginStart="4dp"/>
+        </LinearLayout>
+
+        <!-- Share -->
+        <LinearLayout
+            android:id="@+id/shareContainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center_vertical|center_horizontal"
+            android:padding="8dp">
+            <ImageView android:id="@+id/btnShareIcon" android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ic_share"/>
+            <TextView android:id="@+id/btnShareText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Share" android:layout_marginStart="4dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- RecyclerView comment -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvComments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:nestedScrollingEnabled="false"/>
+
+    <!-- Comment inline -->
+    <LinearLayout
+        android:id="@+id/commentInlineContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:padding="8dp">
+        <EditText
+            android:id="@+id/edtCommentInline"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:hint="Viết bình luận..."
+            android:padding="8dp"/>
+        <Button
+            android:id="@+id/btnSendInline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send"/>
+    </LinearLayout>
+</LinearLayout>
